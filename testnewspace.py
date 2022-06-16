@@ -35,15 +35,11 @@ class TestTestnewpass():
         time.sleep(1)
         self.driver.find_element(By.CSS_SELECTOR, ".form-title").click()
         self.driver.find_element(By.LINK_TEXT, "Безопасность и вход").click()
-        
+        time.sleep(5)
         self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(2) .name").click()
+       
         time.sleep(5)
-        
-        
-        
-        time.sleep(5)
-        self.driver.find_element(By.CSS_SELECTOR, ".fieldset:nth-child(1) input").send_keys("makeevaas93@yandex.ru")
-        
+                        
         self.driver.find_element(By.ID, "oldPassword").send_keys("Stepanova2014")
         time.sleep(5)
         
@@ -51,13 +47,17 @@ class TestTestnewpass():
         time.sleep(1)
         
         self.driver.find_element(By.ID, "confirmPassword").send_keys("qwertyu1")
-        time.sleep(1)
+        
+        time.sleep(5)
         
         self.driver.find_element(By.CSS_SELECTOR, ".fill").submit()
         
-        time.sleep(1)
+        time.sleep(10)
         
         assert self.driver.find_element(By.CSS_SELECTOR, ".body-title").text == "Пароль успешно изменен!"
+        
+        time.sleep(5)
+        
         element = self.driver.find_element(By.CSS_SELECTOR, ".menu-header")
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
