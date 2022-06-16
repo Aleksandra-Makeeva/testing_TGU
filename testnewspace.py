@@ -60,27 +60,64 @@ class TestTestnewpass():
         
         element = self.driver.find_element(By.CSS_SELECTOR, ".menu-header")
         actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
-        self.driver.find_element(By.CSS_SELECTOR, ".logout > img").click()
+        actions.move_to_element(element).perform()   
+        
+        
+        element = self.driver.find_element(By.CSS_SELECTOR, ".logo_icon")
+        
+        self.driver.find_element(By.CSS_SELECTOR, ".logout_name").click()
+        
+        time.sleep(5)
+     
+        
         self.driver.find_element(By.CSS_SELECTOR, ".fieldset:nth-child(1) input").click()
         self.driver.find_element(By.CSS_SELECTOR, ".fieldset:nth-child(1) input").send_keys("makeevaas93@yandex.ru")
-        self.driver.find_element(By.CSS_SELECTOR, ".fieldset:nth-child(2) input").click()
+        
         self.driver.find_element(By.CSS_SELECTOR, ".fieldset:nth-child(2) input").send_keys("qwertyu1")
+        
         self.driver.find_element(By.CSS_SELECTOR, ".btn").click()
-        element = self.driver.find_element(By.CSS_SELECTOR, ".scrollmenu")
+        
+        time.sleep(5)
+        
+        element = self.driver.find_element(By.CSS_SELECTOR, ".menu-header")
         actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
-        self.driver.find_element(By.CSS_SELECTOR, ".avatar_link_name").click()
+        actions.move_to_element(element).perform()     
+        self.driver.find_element(By.CSS_SELECTOR, ".avatar_link_name").click() 
+        time.sleep(1)
+        self.driver.find_element(By.CSS_SELECTOR, ".form-title").click()
         self.driver.find_element(By.LINK_TEXT, "Безопасность и вход").click()
+        time.sleep(5)
         self.driver.find_element(By.CSS_SELECTOR, ".item:nth-child(2) .name").click()
-        self.driver.find_element(By.ID, "oldPassword").click()
+       
+        time.sleep(5)
+                        
         self.driver.find_element(By.ID, "oldPassword").send_keys("qwertyu1")
+        time.sleep(5)
+        
         self.driver.find_element(By.ID, "newPassword").send_keys("Stepanova2014")
+        time.sleep(1)
+        
         self.driver.find_element(By.ID, "confirmPassword").send_keys("Stepanova2014")
-        self.driver.find_element(By.CSS_SELECTOR, ".fill").click()
+        
+        time.sleep(5)
+        
+        self.driver.find_element(By.CSS_SELECTOR, ".fill").submit()
+        
+        time.sleep(10)
+        
+        assert self.driver.find_element(By.CSS_SELECTOR, ".body-title").text == "Пароль успешно изменен!"
+        
+        time.sleep(5)
+        
+        element = self.driver.find_element(By.CSS_SELECTOR, ".menu-header")
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()   
+        
+        
+        element = self.driver.find_element(By.CSS_SELECTOR, ".logo_icon")
+        
         self.driver.find_element(By.CSS_SELECTOR, ".logout_name").click()
+        
+        time.sleep(5)
   
-a = TestTestnewpass()
-a.setup_method()
-a.test_testnewpass()
-a.teardown_method()
+
